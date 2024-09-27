@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1><a href="my.do?action=simple"> MyServlet doGet </a></h1>
+	<h1><a href="my.do?action=paramget&op1=100&op2=홍길동&op3=10&op3=20">MyServlet doGet params</a></h1>
+	<form>
+		<input type = "hidden" name ="action" value="parampost">
+		<input type = "text" name="op1" value="1000">
+		<input type = "text" name = "op2" value="홍길동">
+		
+		<label for="30">30</label> <input type="checkbox" name="op3" value="30" id="30">
+		<label for="40">40</label> <input type="checkbox" name="op3" value="40" id="40">
+		<input type = "submit" value="전송">
+	</form>
+	
+</body>
+</html>
