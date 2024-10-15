@@ -11,6 +11,10 @@ public class ClientMain {
 	 	p.playGame();
 	 	p.takeAPicture();
 		
-		
+		/*
+		 * 
+		 * 느슨한 연결로 객체를 생성할 필요 없이.
+		 * 
+		 */
 	}
 }

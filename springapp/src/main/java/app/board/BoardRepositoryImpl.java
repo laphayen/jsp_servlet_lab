@@ -23,7 +23,7 @@ public class BoardRepositoryImpl implements BoardRepository {
 		
 		int res = pstmt.executeUpdate();
 		
-		ds.close
+		
 		
 		return 0;
 	}
