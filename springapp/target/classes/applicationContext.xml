@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+    <bean id="h" class="springapp.app.Hello" scope="singleton">
+        <!-- collaborators and configuration for this bean go here -->
+        <constructor-arg index="0" value="ssafy"></constructor-arg>
+    </bean>
+
+    <bean id="ssafy" class="springapp.app.ssafy">
+    	<constructor-arg index="0" ref="h"></constructor-arg>
+    	<constructor-arg index="1" value="7"></constructor-arg>
+    	<!-- 객체일 경우 참조 데이터를 넣어 줘야 한다. -->
+    	
+    	<property name="age" value="27"></property>
+    	<!-- 변수에 바로 넣는 것이 아니라 카멜표시법의 메소드가 있어야 한다. -->
+    	<!-- 순서의 상관없이 알아서 처리한다. -->
+    </bean>
+
+    <!-- more bean definitions go here -->
+
+</beans>
