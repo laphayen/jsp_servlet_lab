@@ -24,7 +24,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="mobile">
+				<c:forEach var="mobile" items="${mobileList}">
 					<tr>
 						<td>${mobile.code}</td>
 						<td><a

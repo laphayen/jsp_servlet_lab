@@ -131,10 +131,10 @@ public class UserController extends HttpServlet {
 		int cnt =userService.register(user);
 		
 		if(cnt!=0) {
-			response.sendRedirect("/user?action=goLoginPage");
+			response.sendRedirect(request.getContextPath() + "/user?action=goLoginPage");
 		}else {
 			request.setAttribute("msg", "회원가입에 실패하였습니다.다시 시도해주세요.");
-			request.getRequestDispatcher("/user?action=goRegistPage");
+			request.getRequestDispatcher("/user?action=goRegistPage").forward(request, response);
 		}
 		
 		
@@ -145,7 +145,7 @@ public class UserController extends HttpServlet {
 		User user = userService.detail(userInfo.getId());
 		
 		if(userInfo!=null) {
-			request.setAttribute("user", userInfo);
+			request.setAttribute("user", user);
 			request.getRequestDispatcher("/user/detailUser.jsp").forward(request, response);			
 		}else {			
 			throw new NullPointerException();

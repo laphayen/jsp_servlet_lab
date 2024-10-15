@@ -25,10 +25,13 @@ public class MobileDaoImpl implements MobileDao {
 	public List<Mobile> selectAll() throws SQLException {
 		List<Mobile> mobileList = new ArrayList<>();
 		String sql = "select code, model, price, company from mobiles";
-		try(
-				Connection conn = dbUtil.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)){
-			try(ResultSet rs = pstmt.executeQuery();){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+				conn = dbUtil.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
 
 				while(rs.next()) {
 					String code = rs.getString("code");
@@ -44,9 +47,10 @@ public class MobileDaoImpl implements MobileDao {
 					
 					
 					mobileList.add(mobile);
-					return mobileList;
 				}
-			}
+		}
+		finally {
+			dbUtil.close(rs, pstmt, conn);
 		}
 		
 		return mobileList;
@@ -95,10 +99,12 @@ public class MobileDaoImpl implements MobileDao {
 			pstmt.setString(4, mobile.getCompany());
 			pstmt.setString(5, mobile.getUserId());
 
-		}finally {			
+			pstmt.executeUpdate();
+			
+		} finally {			
 			dbUtil.close(pstmt, conn);
 		}
-		return pstmt.executeUpdate();
+		return cnt;
 
 	}
 

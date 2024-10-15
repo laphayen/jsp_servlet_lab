@@ -55,8 +55,8 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int register(User user) throws SQLException {
 		StringBuilder sql = new StringBuilder();
-		sql.append("insert into users");
-		sql.append("values(?,?,?,?,?,?)");
+		sql.append("insert into users (id, pw, name, birthdate, phone, email) ");
+	    sql.append("values (?, ?, ?, ?, ?, ?)");
 		int cnt = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -73,7 +73,7 @@ public class UserDaoImpl implements UserDao {
 			cnt = pstmt.executeUpdate();
 			
 			
-		}finally {
+		} finally {
 			dbUtil.close(pstmt, conn);
 		}
 		return cnt;

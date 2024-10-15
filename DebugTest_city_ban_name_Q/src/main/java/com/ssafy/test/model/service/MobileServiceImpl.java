@@ -17,10 +17,11 @@ public class MobileServiceImpl implements MobileService {
 	private static MobileServiceImpl instance;
 	
 	public static MobileServiceImpl getInstance(){
+		if (instance == null) {
+			instance = new MobileServiceImpl();
+		}
 		return instance;
 	}
-	
-	
 
 	@Override
 	public List<Mobile> selectAll() throws SQLException {

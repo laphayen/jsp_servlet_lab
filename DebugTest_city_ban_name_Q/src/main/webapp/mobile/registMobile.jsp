@@ -16,19 +16,19 @@
 			<input type="hidden" name="action" value="regist">
 			<div class="form-group">
 				<label for="code">고유번호</label> <input type="text"
-					class="form-control" id="code" placeholder="고유번호 입력">
+					class="form-control" id="code" name="code" placeholder="고유번호 입력">
 			</div>
 			<div class="form-group">
 				<label for="model">모델명</label> <input type="text"
-					class="form-control" id="model" placeholder="모델명 입력">
+					class="form-control" id="model" name="model" placeholder="모델명 입력">
 			</div>
 			<div class="form-group">
 				<label for="price">가격</label> <input type="number"
-					class="form-control" id="price" placeholder="가격 입력">
+					class="form-control" id="price" name="price" placeholder="가격 입력">
 			</div>
 			<div class="form-group">
 				<label for="company">제조사</label> <input type="text"
-					class="form-control" id="company" placeholder="제조사 입력">
+					class="form-control" id="company" name="company" placeholder="제조사 입력">
 			</div>
 
 			<button type="submit" class="btn btn-primary" id="regist">등록</button>
